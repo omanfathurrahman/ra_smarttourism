@@ -57,7 +57,7 @@ const curAktivitas = ref(Aktivitas.Research)
       <div class="w-[40%] aspect-[5/6] overflow-hidden " data-aos="fade-left">
         <img src="/img/kamar-hotel.png" alt="" class="w-full h-full object-cover">
       </div>
-      
+
       <img src="/img/seperempat-lingkaran.png" alt="" class="absolute top-[6rem] right-[28rem]">
     </div>
     <div class="text-black px-[6rem] py-[6rem] relative bg-zinc-200 z-10">
@@ -75,7 +75,7 @@ const curAktivitas = ref(Aktivitas.Research)
               pengalaman perjalanan yang lebih cerdas dan terhubung. Temukan tujuan dengan cepat, nikmati layanan yang
               disesuaikan, dan jelajahi dunia dengan cara baru. Selamat datang di masa depan wisata dan perhotelan yang
               cerdas!</p>
-            <div class="bg-[#D9D9D9] size-[24rem] rounded-full absolute top-[5rem] right-[25rem] -z-10"></div>
+            <div class="bg-[#F8A31F] size-[24rem] rounded-full absolute top-[5rem] right-[25rem] -z-10"></div>
           </div>
         </div>
       </div>
@@ -93,20 +93,53 @@ const curAktivitas = ref(Aktivitas.Research)
         </div>
       </div>
     </div>
-    <div class="bg-[#303030] px-[6rem] py-[4rem]">
+    <div class="bg-[#0094D9] px-[6rem] py-[4rem]">
       <div class="">
         <span class="text-lg font-medium">Program</span>
         <h3 class="text-6xl font-semibold">Program apa saja yang dilakukan oleh CoE Smart Tourism & Hospitality?</h3>
-        <p class="text-lg text-zinc-400 mt-3 w-[60%]">Program yang berhubungan dengan pendidikan dan pengabdian masyarakat
+        <p class="text-lg mt-3 w-[60%]">Program yang berhubungan dengan pendidikan dan pengabdian masyarakat
           merupakan upaya untuk meningkatkan akses dan kualitas pendidikan sekaligus memberikan kontribusi positif kepada
           masyarakat.</p>
       </div>
-      <div class="grid grid-cols-2 gap-9 mt-6">
-        <div class="" v-for="i in 3" data-aos="fade-up">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="" class="w-full aspect-[12/7] object-cover">
-          <h3 class="mt-1 text-lg font-semibold">MBKM dan Magang</h3>
+      <div class="mt-16">
+        <div class="grid grid-cols-2 gap-6 mb-[4rem]">
+          <div class="relative" data-aos="fade-right">
+            <img
+              src="https://images.unsplash.com/photo-1682687982185-531d09ec56fc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="">
+              <div class="h-[2.5rem] w-[18rem] absolute left-1/2 translate-x-[-50%] top-[-1rem] bg-pink-600"></div>
+          </div>
+          <div class="flex flex-col justify-between items-start pb-16">
+            <div class="">
+              <h4 class="text-3xl font-semibold">MBKM dan Magang</h4>
+              <p class="mt-2">Salah satu program kami adalah melakukan pengembangan aplikasi pemandu wisata cerdas yang
+                menggunakan
+                kecerdasan buatan (AI) untuk memberikan rekomendasi lokasi wisata yang sesuai dengan preferensi pengguna.
+              </p>
+            </div>
+            <button class="mt-8">
+              Selengkapnya
+              <Icon name="solar:arrow-right-outline" class="text-2xl" />
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="flex flex-col justify-between items-start pb-16">
+            <div class="">
+              <h4 class="text-3xl font-semibold">Pengabdian Masyarakat</h4>
+              <p class="mt-2">Pelatihan Karyawan Industri: COE dapat menyelenggarakan program pelatihan dan pengembangan karyawan untuk meningkatkan keterampilan dan pengetahuan dalam industri pariwisata dan perhotelan. Ini dapat mencakup pelatihan dalam pelayanan pelanggan, manajemen destinasi, keberlanjutan, dan teknologi terkini.</p>
+            </div>
+            <button class="mt-8">
+              Selengkapnya
+              <Icon name="solar:arrow-right-outline" class="text-2xl" />
+            </button>
+          </div>
+          <div class="relative" data-aos="fade-left">
+            <img
+              src="https://images.unsplash.com/photo-1682687982185-531d09ec56fc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="">
+              <div class="h-[2.5rem] w-[18rem] absolute left-1/2 translate-x-[-50%] top-[-1rem] bg-pink-600"></div>
+          </div>
         </div>
       </div>
     </div>
