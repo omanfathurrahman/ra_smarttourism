@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#0094D9] w-[5/12] px-[6rem] pt-[9rem] pb-[4rem] grid grid-cols-3 gap-x-10">
+  <footer class="bg-primary w-[5/12] px-[6rem] pt-[9rem] pb-[4rem] grid grid-cols-3 gap-x-10">
     <h4 class="text-lg font-semibold mb-3">Center of Excellence <br>Smart Tourism & Hotpitality</h4>
     <h4 class="text-lg font-semibold">Akses Cepat</h4>
     <h4 class="text-lg font-semibold">Kontak</h4>
