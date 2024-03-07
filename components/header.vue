@@ -7,7 +7,7 @@ const navHover = reactive({
 </script>
 
 <template>
-  <header class="flex items-center justify-between h-[4.5rem] ">
+  <header class="flex items-center justify-between h-[4.5rem]">
     <div class="flex gap-2">
       <div class="h-[3rem]">
         <img src="/lingian-logo.png" alt="" class="h-full">
@@ -18,7 +18,7 @@ const navHover = reactive({
       </div>
     </div>
     <div class="flex items-center gap-10 h-full *:h-full">
-      <button class="hover:underline underline-offset-4">Beranda</button>
+      <NuxtLink to="/" class="flex items-center hover:underline underline-offset-4">Beranda</NuxtLink>
       <div class="relative group flex justify-center" @mouseover="navHover.tentangKami = true"
         @mouseleave="navHover.tentangKami = false">
         <button class="">Tentang Kami
@@ -27,7 +27,7 @@ const navHover = reactive({
         <Transition>
           <div class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap"
             v-show="navHover.tentangKami">
-            <button class="hover:underline underline-offset-4">Visi dan Misi</button>
+            <NuxtLink to="/visi-dan-misi" class="hover:underline underline-offset-4">Visi dan Misi</NuxtLink>
             <button class="hover:underline underline-offset-4">Anggota Tim</button>
           </div>
         </Transition>
