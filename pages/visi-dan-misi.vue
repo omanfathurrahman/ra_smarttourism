@@ -4,7 +4,7 @@
       <Header />
       <div class="absolute w-full h-[24rem] bg-primary top-0 left-0 -z-10"></div>
       <div class="h-[calc(100dvh-4.5rem)] flex items-center justify-center">
-        <img src="~/assets/Union.png" alt="" class="w-full">
+        <img src="~/assets/visi-dan-misi.png" alt="" class="w-full">
         <h1 class="absolute top-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] text-6xl font-semibold">Visi dan Misi
         </h1>
         <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[7.5rem]"></div>
