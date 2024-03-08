@@ -28,7 +28,7 @@ const navHover = reactive({
           <div class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap"
             v-show="navHover.tentangKami">
             <NuxtLink to="/visi-dan-misi" class="hover:underline underline-offset-4">Visi dan Misi</NuxtLink>
-            <button class="hover:underline underline-offset-4">Anggota Tim</button>
+            <NuxtLink to="/anggota-tim" class="hover:underline underline-offset-4">Anggota Tim</NuxtLink>
           </div>
         </Transition>
       </div>
