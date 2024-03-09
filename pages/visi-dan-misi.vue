@@ -7,7 +7,7 @@
         <img src="~/assets/visi-dan-misi.png" alt="" class="w-full">
         <h1 class="absolute top-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] text-6xl font-semibold">Visi dan Misi
         </h1>
-        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[7.5rem]"></div>
+        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[5.5rem]"></div>
       </div>
       <div class="border-b pb-10 border-zinc-700">
         <h2 class="text-primary text-5xl font-semibold">Visi dan Misi CoE Smart Tourism and Hospitality</h2>
