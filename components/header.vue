@@ -40,7 +40,7 @@ const navHover = reactive({
         <Transition>
           <div class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap"
             v-show="navHover.aktivitas">
-            <button class="hover:underline underline-offset-4">Riset</button>
+            <NuxtLink to="/riset" class="hover:underline underline-offset-4">Riset</NuxtLink>
             <button class="hover:underline underline-offset-4">Bisnis</button>
             <button class="hover:underline underline-offset-4">Inovasi</button>
           </div>
