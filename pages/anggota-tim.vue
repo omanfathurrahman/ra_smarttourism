@@ -7,7 +7,7 @@
         <img src="~/assets/anggota-tim.png" alt="" class="w-full">
         <h1 class="absolute top-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] text-6xl font-semibold">Anggota Tim
         </h1>
-        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[7.5rem]"></div>
+        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[5.5rem]"></div>
       </div>
       <div class="pb-10">
         <h2 class="text-primary text-5xl font-semibold">Visi dan Misi CoE Smart Tourism and Hospitality</h2>
@@ -23,12 +23,19 @@
         </div>
       </div>
     </div>
-    <div class="bg-primary px-[6rem] py-[8rem]">
+    <div class="bg-primary px-[6rem] py-[8rem] relative z-10">
+
       <h2 class="text-4xl font-semibold text-center">Tim Kami</h2>
       <div class="grid grid-cols-3 gap-8 mt-[6rem]">
         <div class="aspect-square" v-for="i in 9"> 
           <img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?q=80&w=2952&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="h-full w-full object-cover" />
         </div>
+      </div>
+
+      <div class="">
+        <img src="/img/Polygon1.svg" alt="" class="absolute top-[10rem]">
+        <div class="size-[24rem] bg-second absolute top-[9rem] right-0 -z-10"></div>
+        <div class="size-[38rem] bg-second rounded-full absolute bottom-[3rem] left-[3.4rem] -z-10"></div>
       </div>
     </div>
     <Footer />
