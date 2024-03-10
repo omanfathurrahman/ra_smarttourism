@@ -1,8 +1,3 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
-    "emmet.includeLanguages": {
-        "edge": "html",
-        "vue-html": "html",
-        "vue": "html"
-    },
 }
