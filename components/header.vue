@@ -41,8 +41,8 @@ const navHover = reactive({
           <div class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap"
             v-show="navHover.aktivitas">
             <NuxtLink to="/riset" class="hover:underline underline-offset-4">Riset</NuxtLink>
-            <NuxtLink to="/" class="hover:underline underline-offset-4">Bisnis</NuxtLink>
-            <NuxtLink to="/" class="hover:underline underline-offset-4">Inovasi</NuxtLink>
+            <NuxtLink to="/bisnis" class="hover:underline underline-offset-4">Bisnis</NuxtLink>
+            <NuxtLink to="/inovasi" class="hover:underline underline-offset-4">Inovasi</NuxtLink>
           </div>
         </Transition>
       </div>
@@ -54,7 +54,7 @@ const navHover = reactive({
         <Transition>
           <div class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap"
             v-show="navHover.program">
-            <NuxtLink to="/" class="hover:underline underline-offset-4">MBKM dan Magang</NuxtLink>
+            <NuxtLink to="/mbkm-dan-magang" class="hover:underline underline-offset-4">MBKM dan Magang</NuxtLink>
             <NuxtLink to="/" class="hover:underline underline-offset-4">Pengabdian Masyarakat</NuxtLink>
           </div>
         </Transition>
