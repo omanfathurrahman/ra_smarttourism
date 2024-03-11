@@ -14,7 +14,9 @@
         >
           Anggota Tim
         </h1>
-        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[8%]"></div>
+        <div
+          class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[3.3rem]"
+        ></div>
       </div>
       <div class="pb-10">
         <h2 class="text-black text-5xl font-semibold">
@@ -45,7 +47,7 @@
         >
           <img
             src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?q=80&w=2952&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            class="h-full w-full object-cover"
+            class="h-full w-full object-cover object-center transition-all duration-500 ease-out transform group-hover:scale-110 group-hover:rotate-[3deg]"
           />
           <div
             class="absolute pt-20 pb-2 px-4 w-full bottom-0 left-0 bg-gradient-to-t from-black to-black/0 translate-y-[100%] group-hover:translate-y-0 transition-all duration-500 ease-out"
