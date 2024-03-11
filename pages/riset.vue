@@ -5,16 +5,14 @@
       <div
         class="absolute w-full h-[24rem] bg-primary top-0 left-0 -z-10"
       ></div>
-      <div class="h-[calc(100dvh-4.5rem)] flex items-center justify-center">
+      <div class="h-[calc(100dvh-4.5rem)] flex items-center justify-center relative -z-10">
         <img src="~/assets/visi-dan-misi.png" alt="" class="w-full" />
         <h1
           class="absolute top-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] text-6xl font-semibold"
         >
           Riset dan Publikasi
         </h1>
-        <div
-          class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[7.5rem]"
-        ></div>
+        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[3.3rem]"></div>
       </div>
       <div class="border-b pb-10 border-zinc-700 relative">
         <h2 class="text-black text-6xl font-semibold">
@@ -43,7 +41,7 @@
           class="size-[28rem] rounded-full bg-second absolute top-[-8rem] right-[-2rem] -z-10"
         />
       </div>
-      <div class="py-24">
+      <div class="pb-24 pt-8">
         <div class="">
           <div class="size-[7rem] bg-third rounded-tl-full"></div>
         </div>
