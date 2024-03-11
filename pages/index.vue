@@ -14,15 +14,26 @@ const aktivitasDeskripsi = [
 
 const curAktivitas = ref(Aktivitas.Research)
 
+const { x, y } = useWindowScroll();
+
+watchEffect(() => {
+  console.log(y.value)
+  console.log(1 + y.value / 2000)
+})
 
 </script>
 
 <template>
-  <div class="overflow-hidden">
+  <div class="overflow-hidden relative">
     <div class="">
       <div class="absolute h-screen w-full top-0 left-0 -z-20 bg-black/65"></div>
-      <div class="absolute h-screen w-full top-0 left-0 -z-30" style="background-image: url('/img/bg1.png');"></div>
-      <div class="relative min-h-screen px-[6rem]">
+      <img 
+        class="absolute h-screen w-full top-0 left-0 -z-30" 
+        src="/img/bg1.png"
+        alt="background"
+        :style="{scale: 1 + y / 2000, filter: `blur(${y / 100}px)`}"
+        ></img>
+      <div class="relative h-screen px-[6rem]">
         <Header />
         <div class="flex flex-col items-center justify-center h-[calc(100dvh-4.5rem)] pb-[4.5rem]">
           <div class="flex flex-col items-center">
@@ -31,17 +42,13 @@ const curAktivitas = ref(Aktivitas.Research)
           </div>
           <p class="text-lg text-white/60 w-1/2 text-center mt-4">Tingkatkan pengalaman Anda dengan Smart Tourism dan
             Hospitality! Hemat waktu, jelajahi lebih banyak, dan rasakan kenyamanan teknologi.</p>
-          <!-- <div class="flex flex-col items-center gap-3 absolute bottom-3 animate-bounce">
-            <button>Geser Ke Bawah</button>
-            <Icon name="solar:arrow-down-outline" class="text-3xl " />
-          </div> -->
         </div>
         <div
           class="absolute bottom-0 w-full h-[4rem] left-0 -z-10 bg-gradient-to-t from-[#303030] from-30% to-transparent">
         </div>
       </div>
     </div>
-    <div class="bg-[#0094D9] items-center gap-10 flex pl-[6rem] py-[10rem] relative">
+    <div class="bg-primary items-center gap-10 flex pl-[6rem] py-[10rem] relative">
       <div class="w-[60%]">
         <span class="text-xl font-medium">Tentang Kami</span>
         <h2 class="text-7xl font-semibold">Bersiaplah untuk perjalanan yang lebih pintar dan terhubung!</h2>
@@ -93,7 +100,7 @@ const curAktivitas = ref(Aktivitas.Research)
         </div>
       </div>
     </div>
-    <div class="bg-[#0094D9] px-[6rem] py-[4rem]">
+    <div class="bg-primary px-[6rem] py-[4rem]">
       <div class="">
         <span class="text-lg font-medium">Program</span>
         <h3 class="text-6xl font-semibold">Program apa saja yang dilakukan oleh CoE Smart Tourism & Hospitality?</h3>
