@@ -14,12 +14,7 @@ const aktivitasDeskripsi = [
 
 const curAktivitas = ref(Aktivitas.Research)
 
-const { x, y } = useWindowScroll();
-
-watchEffect(() => {
-  console.log(y.value)
-  console.log(1 + y.value / 2000)
-})
+const { y } = useWindowScroll();
 
 </script>
 
