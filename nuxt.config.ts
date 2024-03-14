@@ -8,6 +8,11 @@ export default defineNuxtConfig({
     '@vueuse/nuxt', 
   ],
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/ra-smarttourism.ico'}
+      ]
+    }
   },
 })
