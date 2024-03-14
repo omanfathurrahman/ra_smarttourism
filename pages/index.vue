@@ -28,7 +28,7 @@ watchEffect(() => {
     <div class="">
       <div class="absolute h-screen w-full top-0 left-0 -z-20 bg-black/65"></div>
       <img 
-        class="absolute h-screen w-full top-0 left-0 -z-30" 
+        class="absolute h-screen w-full top-0 left-0 -z-30 transition-all ease-linear" 
         src="/img/bg1.png"
         alt="background"
         :style="{scale: 1 + y / 2000, filter: `blur(${y / 100}px)`}"
