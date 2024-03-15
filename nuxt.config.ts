@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     'nuxt-aos',
     '@vueuse/nuxt', 
+    '@nuxt/image',
   ],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
