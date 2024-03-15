@@ -2,17 +2,14 @@
   <div class="">
     <div class="px-24 pb-28">
       <Header />
-      <div
-        class="absolute w-full h-[24rem] bg-primary top-0 left-0 -z-10"
-      ></div>
+      <div class="absolute w-full h-[24rem] bg-primary top-0 left-0 -z-10"></div>
       <div class="h-[calc(100dvh-4.5rem)] flex items-center justify-center relative -z-10">
-        <img src="~/assets/visi-dan-misi.png" alt="" class="w-full" />
-        <h1
-          class="absolute top-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] text-6xl font-semibold"
-        >
+        <Hero imgFile="visi-dan-misi.png" title="MBKM dan Magang" class="" />
+        <!-- <img src="~/assets/visi-dan-misi.png" alt="" class="w-full" />
+        <h1 class="absolute top-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] text-6xl font-semibold">
           MBKM dan Magang
         </h1>
-        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[3.3rem]"></div>
+        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[3.3rem]"></div> -->
       </div>
       <div class="pb-10 relative">
         <h2 class="text-black text-6xl font-semibold">
@@ -35,8 +32,7 @@
           industri pariwisata dan hospitality.
         </p>
         <div
-          class="size-[22rem] rounded-full bg-second absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[36%] -z-10"
-        />
+          class="size-[22rem] rounded-full bg-second absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[36%] -z-10" />
       </div>
     </div>
     <div class="px-24 bg-primary">
@@ -44,12 +40,8 @@
         <div class="w-8/12 mx-auto relative">
           <img
             src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-            class="w-full h-full object-cover aspect-[3/2]"
-          />
-          <div
-            class="w-[18rem] h-[3rem] bg-second absolute top-[-1.4rem] left-1/2 -translate-x-1/2"
-          ></div>
+            alt="" class="w-full h-full object-cover aspect-[3/2]" />
+          <div class="w-[18rem] h-[3rem] bg-second absolute top-[-1.4rem] left-1/2 -translate-x-1/2"></div>
         </div>
         <div class="mt-20">
           <h3 class="text-6xl italic font-semibold">Pengenalan</h3>
@@ -87,12 +79,8 @@
             <div class="relative w-[45%]">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt=""
-                class="w-full h-full object-cover aspect-[2/1]"
-              />
-              <div
-                class="w-[18rem] h-[2.3rem] bg-second absolute top-[-1.4rem] left-1/2 -translate-x-1/2"
-              ></div>
+                alt="" class="w-full h-full object-cover aspect-[2/1]" />
+              <div class="w-[18rem] h-[2.3rem] bg-second absolute top-[-1.4rem] left-1/2 -translate-x-1/2"></div>
             </div>
           </div>
         </div>

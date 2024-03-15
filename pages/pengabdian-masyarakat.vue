@@ -2,17 +2,14 @@
   <div class="">
     <div class="px-24">
       <Header />
-      <div
-        class="absolute w-full h-[24rem] bg-primary top-0 left-0 -z-10"
-      ></div>
+      <div class="absolute w-full h-[24rem] bg-primary top-0 left-0 -z-10"></div>
       <div class="h-[calc(100dvh-4.5rem)] flex items-center justify-center relative -z-10">
-        <img src="~/assets/visi-dan-misi.png" alt="" class="w-full" />
-        <h1
-          class="absolute top-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] text-6xl font-semibold"
-        >
+        <Hero imgFile="visi-dan-misi.png" title="Pengabdian Masyarakat" class="" />
+        <!-- <img src="~/assets/visi-dan-misi.png" alt="" class="w-full" />
+        <h1 class="absolute top-1/2 translate-y-[-50%] left-1/2 translate-x-[-50%] text-6xl font-semibold">
           Riset dan Publikasi
         </h1>
-        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[3.3rem]"></div>
+        <div class="w-[20rem] h-[2rem] bg-orange-400 absolute top-[3.3rem]"></div> -->
       </div>
       <div class="border-b pb-10 border-zinc-700 relative">
         <h2 class="text-black text-6xl font-semibold">
@@ -37,9 +34,7 @@
           menghubungkan teknologi dengan keramahan untuk menciptakan destinasi
           yang lebih pintar, lebih inklusif, dan lebih berkelanjutan bagi semua.
         </p>
-        <div
-          class="size-[28rem] rounded-full bg-second absolute top-[-8rem] right-[-2rem] -z-10"
-        />
+        <div class="size-[28rem] rounded-full bg-second absolute top-[-8rem] right-[-2rem] -z-10" />
       </div>
       <div class="pb-24 pt-8">
         <div class="">
@@ -64,9 +59,7 @@
         <div class="aspect-[3/2] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-            class="w-full h-full object-cover"
-          />
+            alt="" class="w-full h-full object-cover" />
         </div>
         <div class="w-[16rem] h-[2.8rem] bg-second absolute -top-6 z-10 left-1/2 -translate-x-1/2"></div>
       </div>
