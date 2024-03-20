@@ -8,8 +8,9 @@
       <h4 class="text-lg font-semibold">Akses Cepat</h4>
       <div class="flex flex-col *:w-fit mt-2 lg:mt-10">
         <button>Home</button>
-        <button>gsdfgsf</button>
-        <button>eafdr</button>
+        <button>Tentang Kami</button>
+        <button>Aktivitas</button>
+        <button>Program</button>
       </div>
     </div>
     <div class="">
