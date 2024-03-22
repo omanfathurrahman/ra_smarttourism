@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="px-6 lg:px-24 py-16 lg:py-24 bg-primary grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16">
-      <div class="relative" v-for="i in 4">
+      <div @click="navigateTo('/riset/tes')" class="relative cursor-pointer" v-for="i in 4">
         <div class="aspect-[3/2] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
