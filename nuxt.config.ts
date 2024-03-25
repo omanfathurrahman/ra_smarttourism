@@ -8,6 +8,8 @@ export default defineNuxtConfig({
     'nuxt-aos',
     '@vueuse/nuxt', 
     '@nuxt/image',
+    '@pinia/nuxt',
+
   ],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
