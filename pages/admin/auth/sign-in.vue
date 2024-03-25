@@ -19,13 +19,15 @@
       }
     })
     localStorage.setItem('token', token.toString())
+
+    navigateTo('/admin')
   }
 
   const checkUser = async () => {
     const user = await $fetch('/api/getauthuser',
       {
         headers: {
-          Authorization: `${localStorage.getItem('token')}`,
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
       }
     )

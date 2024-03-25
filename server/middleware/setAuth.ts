@@ -11,6 +11,6 @@ export default defineEventHandler(async (event) => {
   const privateKey = process.env.PRIVATE_KEY || 'privateKey'
   if (headers.authorization) {
     // TODO: add a middleware for accessing the authenticated user in my api endpoints easier
-    event.context.auth = { id: (jwt.verify(headers.authorization, privateKey) as JwtPayload as User).id }
+    event.context.auth = { id: (jwt.verify(headers.authorization.split(' ')[1], privateKey) as JwtPayload as User).id }
   }
 })
