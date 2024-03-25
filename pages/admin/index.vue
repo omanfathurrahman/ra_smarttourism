@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient()
-
-
-
+definePageMeta({
+  layout: 'admin'
+})
 </script>
 
 <template>
   <div>
-    
+    <h1>Halaman Admin</h1>
   </div>
 </template>
