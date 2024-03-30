@@ -4,7 +4,7 @@
       <Header />
       <div class="absolute w-full h-[12rem] lg:h-[24rem] bg-primary top-0 left-0 -z-10"></div>
       <div class="lg:h-[calc(100dvh-4.5rem)] flex items-center -z-10 py-12 lg:py-0">
-        <Hero imgFile="visi-dan-misi.png" title="Visi dan Misi" class="" />
+        <Hero imgFile="visi-dan-misi.png" title="Visi dan Misi" class="" data-aos="fade-up" />
       </div>
       <div class="border-b pb-10 border-zinc-700">
         <h2 class="text-black text-3xl lg:text-5xl font-semibold">
@@ -22,11 +22,11 @@
             tetapi juga memberikan pengalaman yang tak terlupakan bagi para
             wisatawan dan pelanggan kami.
           </p>
-          <img src="/img/logo-lingian2.png" alt="" class="w-[70%] lg:w-[25%] mx-auto lg:mx-0 " />
+          <img src="/img/logo-lingian2.png" alt="" class="w-[70%] lg:w-[25%] mx-auto lg:mx-0" data-aos="fade-left" />
         </div>
       </div>
       <div class="grid grid-cols-1 gap-16 lg:gap-0 lg:grid-cols-2 py-[4rem]">
-        <div class="">
+        <div class=""  data-aos="fade-right">
           <div class="bg-second px-14 py-8  h-fit lg:h-[18rem] relative">
             <h3 class="text-3xl font-bold mb-2">Visi</h3>
             <p>
@@ -39,7 +39,7 @@
             </div>
           </div>
         </div>
-        <div class="">
+        <div class="" data-aos="fade-left">
           <div class="h-[10rem] hidden lg:flex justify-start items-end p-5">
             <div class="size-[5rem] rounded-tr-full bg-pink-500"></div>
           </div>
