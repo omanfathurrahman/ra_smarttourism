@@ -3,11 +3,12 @@ import { defineStore } from 'pinia'
 
 export const useAuthUser = defineStore('useAuth', () => {
   const _authUser = ref<User>()
-  const getAuthUser = computed(() => {return _authUser.value})
+  const getAuthUser = computed(() => _authUser.value)
   const removeAuthUser = () => {
     _authUser.value = undefined
     localStorage.removeItem('token')
-    reloadNuxtApp()
+    console.log('reloading')
+    navigateTo('/admin/auth/sign-in')
   }
   const setAuthUser = (user: User) => {
     _authUser.value = user
