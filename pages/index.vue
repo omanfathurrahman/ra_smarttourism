@@ -14,7 +14,7 @@ const aktivitasDeskripsi = [
 
 const curAktivitas = ref(Aktivitas.Research)
 
-const { y } = useWindowScroll();
+const { y } = useWindowScroll()
 
 </script>
 
@@ -22,12 +22,12 @@ const { y } = useWindowScroll();
   <div class="overflow-hidden relative">
     <div class="">
       <div class="absolute h-screen w-full top-0 left-0 -z-20 bg-black/65"></div>
-      <img 
+      <NuxtImg 
         class="absolute h-screen w-full top-0 left-0 -z-30 transition-all ease-linear object-cover" 
         src="/img/bg1.png"
         alt="background"
         :style="{scale: 1 + y / 2000, filter: `blur(${y / 100}px)`}"
-        ></img>
+        />
       <div class="relative h-screen px-6 lg:px-[6rem]">
         <Header />
         <div class="flex flex-col items-center justify-center h-[calc(100dvh-4.5rem)] pb-[4.5rem]">

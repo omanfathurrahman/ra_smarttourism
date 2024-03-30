@@ -1,10 +1,36 @@
+<script
+  setup
+  lang="ts"
+>
+  import type { Post } from '@prisma/client';
+
+  const articlesList = ref<Post[]>([])
+
+  async function getArticles() {
+    const articles = await $fetch('/api/articles/type', {
+      query: {
+        type: 'innovation'
+      }
+    })
+    articlesList.value = articles
+  }
+
+  onMounted(() => {
+    getArticles()
+  })
+</script>
+
 <template>
   <div class="">
     <div class="lg:px-[6rem] px-4 overflow-hidden">
       <Header />
       <div class="absolute w-full h-[12rem] lg:h-[24rem] bg-primary top-0 left-0 -z-10"></div>
       <div class="lg:h-[calc(100dvh-4.5rem)] flex items-center -z-10 py-12 lg:py-0">
-        <Hero imgFile="visi-dan-misi.png" title="Inovasi" class="" />
+        <Hero
+          imgFile="visi-dan-misi.png"
+          title="Inovasi"
+          class=""
+        />
       </div>
       <div class="border-b pb-10 border-zinc-700 relative">
         <h2 class="text-black text-center lg:text-start text-3xl lg:text-5xl font-semibold">
@@ -38,14 +64,24 @@
             mengembangkan pariwisata dan perhotelan.
           </p>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 py-20">
-          <div class="relative" v-for="i in 2">
+        <div class="py-16 lg:py-24 bg-transparent grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16">
+          <div
+            @click="navigateTo(`/inovasi/${article.id}`)"
+            class="relative cursor-pointer"
+            v-for="article in articlesList"
+            :key="article.id"
+          >
             <div class="aspect-[3/2] overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="" class="w-full h-full object-cover" />
+                :src="article.img_url!"
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-            <div class="w-[8rem] lg:w-[16rem] h-[1.6rem] lg:h-[2.8rem] bg-second absolute -top-3 lg:-top-6 z-10 left-1/2 -translate-x-1/2"></div>
+            <div
+              class="w-[8rem] lg:w-[16rem] h-[1.6rem] lg:h-[2rem] bg-second absolute -top-3 lg:-top-4 z-10 left-1/2 -translate-x-1/2"
+            >
+            </div>
           </div>
         </div>
       </div>
@@ -53,7 +89,3 @@
     <Footer />
   </div>
 </template>
-
-<script lang="ts" setup></script>
-
-<style></style>

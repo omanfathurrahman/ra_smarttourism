@@ -18,7 +18,7 @@
 <template>
   <header class="flex items-center justify-between h-[4rem] lg:h-[6rem]">
     <div class="flex items-center gap-2">
-      <div class="h-[3.5rem] lg:h-[4.6rem] pt-2">
+      <div class="h-[3.5rem] lg:h-[4rem] py-1">
         <img src="/lingian-logo.png" alt="" class="h-full">
       </div>
       <div class="flex flex-col justify-center">

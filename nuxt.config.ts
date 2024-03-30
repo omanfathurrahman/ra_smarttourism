@@ -6,8 +6,10 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'nuxt-icon',
     'nuxt-aos',
-    '@vueuse/nuxt', 
+    '@vueuse/nuxt',
     '@nuxt/image',
+    '@pinia/nuxt',
+    '@formkit/auto-animate'
   ],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
@@ -16,5 +18,9 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/ra-smarttourism.ico'}
       ]
     }
+  },
+  experimental: {
+    scanPageMeta: true,
+    typedPages: true
   },
 })

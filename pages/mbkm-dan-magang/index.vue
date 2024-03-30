@@ -4,7 +4,11 @@
       <Header />
       <div class="absolute w-full h-[12rem] lg:h-[24rem] bg-primary top-0 left-0 -z-10"></div>
       <div class="lg:h-[calc(100dvh-4.5rem)] flex items-center -z-10 py-12 lg:py-0">
-        <Hero imgFile="visi-dan-misi.png" title="MBKM dan Magang" class="" />
+        <Hero
+          imgFile="visi-dan-misi.png"
+          title="MBKM dan Magang"
+          class=""
+        />
       </div>
       <div class="border-b pb-10 border-zinc-700 relative">
         <h2 class="text-black text-center lg:text-start text-3xl lg:text-5xl font-semibold">
@@ -27,7 +31,8 @@
           industri pariwisata dan hospitality.
         </p>
         <div
-          class="size-[22rem] rounded-full bg-second absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[36%] -z-10" />
+          class="size-[22rem] rounded-full bg-second absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[36%] -z-10"
+        />
       </div>
     </div>
     <div class="px-4 lg:px-24 bg-primary">
@@ -35,8 +40,12 @@
         <div class="w-full lg:w-8/12 mx-auto relative">
           <img
             src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="" class="w-full h-full object-cover aspect-[3/2]" />
-          <div class="w-[8rem] lg:w-[16rem] h-[1.6rem] lg:h-[2.8rem] bg-second absolute -top-3 lg:-top-6 z-10 left-1/2 -translate-x-1/2"></div>
+            alt=""
+            class="w-full h-full object-cover aspect-[3/2]"
+          />
+          <div
+            class="w-[8rem] lg:w-[16rem] h-[1.6rem] lg:h-[2.8rem] bg-second absolute -top-3 lg:-top-6 z-10 left-1/2 -translate-x-1/2"
+          ></div>
         </div>
         <div class="mt-20">
           <h3 class="text-2xl lg:text-6xl italic font-semibold">Pengenalan</h3>
@@ -58,7 +67,11 @@
           Program MBKM dan Magang Dalam Bidang CoE Smart Tourism And Hospitality
         </h3>
         <div class="mt-16 flex flex-col gap-20">
-          <div class="flex gap-10 flex-col-reverse lg:odd:flex-row lg:even:flex-row-reverse" v-for="i in 2">
+          <div
+            class="flex gap-10 flex-col-reverse lg:odd:flex-row lg:even:flex-row-reverse"
+            v-for="i in 2"
+            :key="i"
+          >
             <div class="w-full lg:w-[55%]">
               <h4 class="text-3xl font-semibold">Pengembangan Website untuk Pariwisata</h4>
               <p class="text-lg font-thin mt-6 text-justify">
@@ -74,8 +87,12 @@
             <div class="relative w-full lg:w-[45%]">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="" class="w-full h-full object-cover aspect-[2/1]" />
-              <div class="w-[8rem] lg:w-[18rem] h-[1.6rem] lg:h-[2.8rem] bg-second absolute -top-3 lg:-top-6 z-10 left-1/2 -translate-x-1/2"></div>
+                alt=""
+                class="w-full h-full object-cover aspect-[2/1]"
+              />
+              <div
+                class="w-[8rem] lg:w-[18rem] h-[1.6rem] lg:h-[2.8rem] bg-second absolute -top-3 lg:-top-6 z-10 left-1/2 -translate-x-1/2"
+              ></div>
             </div>
           </div>
         </div>
@@ -85,6 +102,9 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script
+  lang="ts"
+  setup
+></script>
 
 <style></style>
