@@ -24,6 +24,9 @@ export default defineNuxtConfig({
     scanPageMeta: true,
     typedPages: true
   },
+  nitro: {
+    static: true
+  },
   runtimeConfig: {
     public: {
       // AWS_ACCESS_KEY_ID: 'AKIA2UC3DAWYYSFS3NY4',
