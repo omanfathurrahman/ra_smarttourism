@@ -1,23 +1,16 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
   import type { Post } from '@prisma/client';
 
-  const articlesList = ref<Post[]>([])
+  const { getArticleFromDatabase, updateExpiredArticleImgUrl } = useMyArticleStore()
+  const { getAllArticles } = storeToRefs(useMyArticleStore())
 
-  async function getArticles() {
-    const articles = await $fetch('/api/articles/type', {
-      query: {
-        type: 'research'
-      }
-    })
-    articlesList.value = articles
-  }
-
-  onMounted(() => {
-    getArticles()
+  const getRisetArticles = computed(() => {
+    return getAllArticles.value.filter((article) => article.type === 'research')
   })
+
+  async function updateImgUrl(article: Post) {
+    await updateExpiredArticleImgUrl(article)
+  }
 </script>
 
 <template>
@@ -79,11 +72,12 @@
       <div
         @click="navigateTo(`/riset/${article.id}`)"
         class="relative cursor-pointer"
-        v-for="article in articlesList"
+        v-for="article in getRisetArticles"
         :key="article.id"
       >
         <div class="aspect-[3/2] overflow-hidden">
-          <img
+          <NuxtImg
+            @error="updateImgUrl(article)"
             :src="article.img_url!"
             alt=""
             class="w-full h-full object-cover"

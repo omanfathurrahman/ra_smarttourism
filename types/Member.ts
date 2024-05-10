@@ -1,10 +1,3 @@
-export interface Member {
-    img_url: string;
-    name: string;
-    email: string;
-    position: string;
-    end_date: Date;
-    start_date: Date;
-    part: string;
-    show: boolean;
-}
+import type { Member } from "@prisma/client";
+
+export type MemberToBeDisplayed = Omit<Member, 'id'>

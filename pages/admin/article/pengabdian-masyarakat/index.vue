@@ -2,25 +2,21 @@
   setup
   lang="ts"
 >
+import type { Post } from '@prisma/client';
+
   definePageMeta({
     layout: 'admin'
   })
-  import type { Post } from '@prisma/client';
+  const { getArticleFromDatabase, updateExpiredArticleImgUrl } = useMyArticleStore()
+  const { getAllArticles } = storeToRefs(useMyArticleStore())
 
-  const articlesList = ref<Post[]>([])
-
-  async function getArticles() {
-    const articles = await $fetch('/api/articles/type', {
-      params: {
-        type: 'pengabdian-masyarakat'
-      }
-    })
-    articlesList.value = articles
-  }
-
-  onMounted(() => {
-    getArticles()
+  const getCommunityServiceArticles = computed(() => {
+    return getAllArticles.value.filter((article) => article.type === 'community_service')
   })
+
+  async function updateImgUrl(article: Post) {
+    await updateExpiredArticleImgUrl(article)
+  }
 </script>
 
 <template>
@@ -35,11 +31,12 @@
     <div class="mt-4 grid grid-cols-4 gap-3">
       <div
         class="flex flex-col gap-2 border rounded-md overflow-hidden"
-        v-for="article in articlesList"
+        v-for="article in getCommunityServiceArticles"
         :key="article.id"
       >
         <NuxtImg
           :src="article.img_url!"
+          @error="updateImgUrl(article)"
           alt="article.title"
           class="w-full aspect-square object-cover"
         />

@@ -1,26 +1,24 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
   definePageMeta({
     layout: 'admin'
   })
+
   import type { Post } from '@prisma/client';
 
-  const articlesList = ref<Post[]>([])
+  definePageMeta({
+    layout: 'admin'
+  })
+  const { getArticleFromDatabase, updateExpiredArticleImgUrl } = useMyArticleStore()
+  const { getAllArticles } = storeToRefs(useMyArticleStore())
 
-  async function getArticles() {
-    const articles = await $fetch('/api/articles/type', {
-      query: {
-        type: 'innovation'
-      }
-    })
-    articlesList.value = articles as Post[]
+  const getInnovationArticles = computed(() => {
+    return getAllArticles.value.filter((article) => article.type === 'innovation')
+  })
+
+  async function updateImgUrl(article: Post) {
+    await updateExpiredArticleImgUrl(article)
   }
 
-  onMounted(() => {
-    getArticles()
-  })
 </script>
 
 <template>
@@ -34,12 +32,13 @@
     </div>
     <div class="mt-4 grid grid-cols-4 gap-3">
       <div
-        v-for="article in articlesList"
+        v-for="article in getInnovationArticles"
         :key="article.id"
         class="flex flex-col gap- 2 border rounded-md overflow-hidden"
       >
         <NuxtImg
           :src="article.img_url!"
+          @error="updateImgUrl(article)"
           alt="article.title"
           class="w-full aspect-square object-cover"
         />

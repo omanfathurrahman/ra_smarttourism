@@ -7,16 +7,14 @@
   const { width } = useWindowSize()
   const isMobile = computed(() => width.value < 768)
 
-  onBeforeMount(async () => {
-    await fetchMembers()
-  })
+  const { updateExpiredMemberImgUrl, getMembersFromDatabase } = useMyMembersStore()
+  const { getMembers } = storeToRefs(useMyMembersStore())
 
-  const members = ref<Member[]>([])
-
-  async function fetchMembers() {
-    const data = await getMembers()
-    members.value = data as Member[]
+  async function updateImgUrl(member: Member) {
+    // console.log('updateImgUrl', member.img_url)
+    await updateExpiredMemberImgUrl(member)
   }
+
 </script>
 
 <template>
@@ -78,14 +76,16 @@
     <div class="bg-primary px-[2rem] lg:px-[6rem] py-[3rem] lg:py-[8rem] relative z-10">
       <h2 class="text-4xl font-semibold text-center">Tim Magang Kami</h2>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10 lg:mt-[6rem]">
+        <!-- {{ getMembers }} -->
         <div
           class="aspect-square relative group overflow-hidden"
-          v-for="(member, i) of members"
+          v-for="(member, i) of getMembers"
           :key="i"
           data-aos="fade-up"
         >
-          <img
+          <NuxtImg
             :src="member.img_url"
+            @error="updateImgUrl(member)"
             class="h-full w-full object-cover object-center transition-all duration-500 ease-out transform group-hover:scale-110 group-hover:rotate-[3deg]"
           />
           <div

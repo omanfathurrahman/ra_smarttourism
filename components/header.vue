@@ -23,7 +23,7 @@
       </div>
       <div class="flex flex-col justify-center">
         <span class="text-lg">Center of Excellence</span>
-        <span class="text-xs font-bold">Smart Tourism & Hotpitality</span>
+        <span class="text-xs font-bold">Smart Tourism & Hospitality</span>
       </div>
     </div>
     <div v-if="!isMobile" class="flex items-center gap-10 h-full *:h-full">

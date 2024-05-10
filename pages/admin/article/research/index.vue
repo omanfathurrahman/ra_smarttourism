@@ -2,45 +2,42 @@
   setup
   lang="ts"
 >
+import type { Post } from '@prisma/client';
+
   definePageMeta({
     layout: 'admin'
   })
+  const { getArticleFromDatabase, updateExpiredArticleImgUrl } = useMyArticleStore()
+  const { getAllArticles } = storeToRefs(useMyArticleStore())
 
-  import type { Post } from '@prisma/client';
-
-  const articlesList = ref<Post[]>([])
-
-  async function getArticles() {
-    const articles = await $fetch('/api/articles/type', {
-      query: {
-        type: 'research'
-      }
-    })
-    articlesList.value = articles
-  }
-
-  onMounted(() => {
-    getArticles()
+  const getRisetArticles = computed(() => {
+    return getAllArticles.value.filter((article) => article.type === 'research')
   })
+
+  async function updateImgUrl(article: Post) {
+    await updateExpiredArticleImgUrl(article)
+  }
 </script>
 
 <template>
   <div class="">
     <div class="flex justify-between">
-      <h1 class="text-2xl">Artikel Riset</h1>
+      <h1 class="text-2xl" @click="getArticleFromDatabase">Artikel Riset</h1>
       <NuxtLink
         to="/admin/article/research/add"
         class="px-4 py-1 rounded-md border border-sky-400 text-slate-600"
       >Tambah Artikel Riset</NuxtLink>
     </div>
     <div class="mt-4 grid grid-cols-4 gap-3">
+
       <div
         class="flex flex-col gap-2 border rounded-md overflow-hidden"
-        v-for="article in articlesList"
+        v-for="article in getRisetArticles"
         :key="article.id"
       >
         <NuxtImg
           :src="article.img_url!"
+          @error="updateImgUrl(article)"
           alt="article.title"
           class="w-full aspect-square object-cover"
         />

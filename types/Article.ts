@@ -1,7 +1,13 @@
 
 export interface ArticleDocumentationImage {
     postId: string;
-    img_url: string[];
+    img_url: ArticleDocumentationImgUrl[];
+}
+
+export interface ArticleDocumentationImgUrl {
+    img_url: string;
+    img_path: string;
+    img_url_expired_time: Date;
 }
 
 export interface ArticleDescriptionOrWhatWeDidInterface {

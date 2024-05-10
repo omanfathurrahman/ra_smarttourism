@@ -1,41 +1,48 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
   definePageMeta({
     layout: "admin",
-  });
+  })
 
+  import { v4 as uuidv4 } from 'uuid'
 
   import EditorJS from '@editorjs/editorjs';
   // @ts-ignore
   import List from '@editorjs/list'
 
-  import type { Post } from '@prisma/client';
+  import { Type, type Post } from '@prisma/client';
   import type { ImageUploaded } from '~/types/ImageUploaded';
+  import type { ArticleDocumentationImgUrl } from '~/types/Article';
 
-  const authUser = useAuthUser()
-  const { getAuthUser } = authUser
+  const { getAuthUser } = storeToRefs(useAuthUser())
+
+  const { getArticleFromDatabase } = useMyArticleStore()
+
   let description: EditorJS;
   let whatWeDid: EditorJS;
 
+  const posterImgInputRef = ref<HTMLInputElement>()
+
+  const uploadedPosterImgSrc = ref<ImageUploaded>() // only for preview
+
   const loadingUpload = ref(false)
 
-  const articleData = reactive({
-    title: "",
-    description: "",
-    what_we_did_desc: "",
-    category: "",
-    client: "",
-    hki_paten: "",
-    website_link: "",
-    img_url: "",
-    userId: getAuthUser!.id,
-    type: 'pengabdian-masyarakat',
+  const articleData = reactive<Post>({
+    id: uuidv4(),
+    title: '',
+    description: '',
+    what_we_did_desc: '',
+    category: '',
+    client: '',
+    hki_paten: '',
+    website_link: '',
+    img_url: '',
+    userId: getAuthUser.value!.id,
+    img_path: '',
+    img_url_expired_time: null,
+    published: true,
+    type: Type.community_service
   });
 
-  const posterImgInputRef = ref<HTMLInputElement>()
-  const uploadedPosterImgSrc = ref<ImageUploaded>() // only for preview
 
   async function previewPosterImg() {
     const src = await fileToBase64(posterImgInputRef.value!.files![0]);
@@ -44,18 +51,23 @@
     }
   }
 
-  async function uploadPosterImage() {
-    const url = await uploadImageToImageKit({
-      uploadedPosterImg: uploadedPosterImgSrc.value!.file!,
-      title: articleData.title
+  async function uploadPosterImageToS3() {
+    const { img_url, img_path, img_url_expired_time } = await uploadResearchPosterArticleImage({
+      file: uploadedPosterImgSrc.value!.file!,
+      articleName: articleData.title,
+      imageName: 'poster'
     })
-    articleData.img_url = url
+    articleData.img_url = img_url
+    articleData.img_path = img_path
+    articleData.img_url_expired_time = img_url_expired_time
+    console.log(articleData.img_url)
   }
 
   const documentationImgInputRef = ref<HTMLInputElement>()
   const moreDocumentationImgInputRef = ref<HTMLInputElement>()
   const uploadedDocumentationImgSrc = ref<ImageUploaded[]>([]) // only for preview
-  const uploadedDocumentationImgUrls = ref<string[]>([])
+  const uploadedDocumentationImgUrls = ref<ArticleDocumentationImgUrl[]>([])
+
   async function previewDocumentationImg() {
     for (let i = 0; i < documentationImgInputRef.value!.files!.length; i++) {
       const src = await fileToBase64(documentationImgInputRef.value!.files![i]);
@@ -74,13 +86,19 @@
     moreDocumentationImgInputRef.value!.files = null
   }
 
-  async function uploadDocumatationImages() {
+  async function uploadDocumatationImagesToS3() {
     for (let i = 0; i < uploadedDocumentationImgSrc.value.length; i++) {
-      const url = await uploadImageToImageKit({
-        uploadedPosterImg: uploadedDocumentationImgSrc.value[i].file!,
-        title: `${articleData.title}-${i}`
+      const url = await uploadResearchDocumentationArticleImage({
+        file: uploadedDocumentationImgSrc.value[i].file!,
+        articleName: articleData.title,
+        imageName: `documentation-${i}`
+
       })
-      uploadedDocumentationImgUrls.value.push(url)
+      uploadedDocumentationImgUrls.value.push({
+        img_path: url.img_path,
+        img_url: url.img_url,
+        img_url_expired_time: url.img_url_expired_time
+      })
     }
   }
 
@@ -136,12 +154,20 @@
   async function uploadCurArticle() {
     loadingUpload.value = true
     await saveEditorJsObjects()
-    await uploadPosterImage()
-    await uploadDocumatationImages()
-    const postId = await uploadArticle(articleData as Post)
-    await uploadArticleDocumentationImages({ postId: postId, img_url: uploadedDocumentationImgUrls.value })
-    loadingUpload.value = false
     
+    // upload to s3
+    await uploadPosterImageToS3() // ok
+    await uploadDocumatationImagesToS3() // ok
+
+    // upload to database
+    const postId = await uploadArticleToDatabase(articleData as Post) // ok
+    await uploadArticleDocumentationImages({ postId: postId, img_url: uploadedDocumentationImgUrls.value }) // ok
+    // uploaded to database
+
+    // update article store from database
+    await getArticleFromDatabase()
+    loadingUpload.value = false
+
     navigateTo('/admin/article/pengabdian-masyarakat')
   }
 

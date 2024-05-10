@@ -1,16 +1,10 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -22,39 +16,54 @@ model User {
 }
 
 model Post {
-  id                 String               @id @default(cuid())
-  title              String
-  description        String
-  type               String               @default("research")
-  img_url            String?
-  category           String?
-  client             String?
-  hki_paten          String?
-  website_link       String?
-  what_we_did_desc   String?
-  published          Boolean              @default(false)
-  User               User?                @relation(fields: [userId], references: [id])
-  userId             String?
-  Post_dokumentation Post_documentation[]
+  id                   String               @id @default(cuid())
+  title                String
+  description          String
+  type                 Type                 @default(research)
+  img_url              String?
+  img_path             String?
+  img_url_expired_time DateTime?
+  category             String?
+  client               String?
+  hki_paten            String?
+  website_link         String?
+  what_we_did_desc     String?
+  published            Boolean              @default(false)
+  userId               String?
+  User                 User?                @relation(fields: [userId], references: [id])
+  Post_dokumentation   Post_documentation[]
 }
 
 model Post_documentation {
-  id      String @id @default(cuid())
-  img_url String
-  post    Post   @relation(fields: [postId], references: [id])
-  postId  String
+  id                   String   @id @default(cuid())
+  img_url              String?
+  img_path             String?
+  img_url_expired_time DateTime?
+  postId               String
+  post                 Post     @relation(fields: [postId], references: [id])
 }
 
 model Member {
-  id         String    @id @default(cuid())
-  email      String    @unique
-  name       String
-  img_url    String
-  show       Boolean   @default(false)
-  start_date DateTime?
-  end_date   DateTime?
-  position   String
-  // i was supposed to use a enum here but sqlite does not support it
-  // part: Member | Intern
-  part       String    @default("Member")
+  id                   String    @id @default(cuid())
+  email                String    @unique
+  name                 String
+  img_url              String?
+  img_path             String?
+  img_url_expired_time DateTime?
+  show                 Boolean   @default(false)
+  start_date           DateTime?
+  end_date             DateTime?
+  position             String
+  part                 Part      @default(Member)
+}
+
+enum Part {
+  Member
+  Intern
+}
+
+enum Type {
+  research
+  innovation
+  community_service
 }

@@ -14,8 +14,9 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
+      title: 'RA Smart Tourism',
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/ra-smarttourism.ico'}
+        { rel: 'icon', type: 'image/x-icon', href: '/ra-smarttourism.ico' }
       ]
     }
   },
@@ -23,4 +24,13 @@ export default defineNuxtConfig({
     scanPageMeta: true,
     typedPages: true
   },
+  runtimeConfig: {
+    public: {
+      // AWS_ACCESS_KEY_ID: 'AKIA2UC3DAWYYSFS3NY4',
+      AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
+      AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
+      AWS_BUCKET: process.env.AWS_BUCKET,
+    }
+  },
+
 })

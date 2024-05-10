@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-primary w-[8/12] px-4 lg:px-[6rem] pt-[4rem] lg:pt-[6rem] pb-[4rem] flex flex-col lg:flex-row gap-10 lg:gap-36">
     <div class="">
-      <h4 class="text-lg font-semibold mb-3">Center of Excellence <br>Smart Tourism & Hotpitality</h4>
+      <h4 class="text-lg font-semibold mb-3">Center of Excellence <br>Smart Tourism & Hospitality</h4>
       <p class="">Jl. Telekomunikasi No.01, Terusan Buahbatu</p>
     </div>
     <div class="">

@@ -1,116 +1,137 @@
-<script
-  setup
-  lang="ts"
->
-  import uploadMember from '~/composables/uploadMember';
-  import type { Member } from '~/types/Member';
-
-
+<script setup lang="ts">
   definePageMeta({
     layout: 'admin',
   })
 
-  const loadingUpload = ref(false)
+  import { Part, type Member } from '@prisma/client';
+  import { getFile } from '~/composables/s3/getFile';
+  import uploadMemberToDatabase from '~/composables/uploadMemberToDatabase';
+  import { v4 as uuidv4 } from 'uuid'
+  
+  type MemberWhenAdd = Member & {
+    img_src: string
+    img_inputEl: HTMLInputElement | null
+    img_file: File | null
+  }
 
+  const loadingUpload = ref(false)
+  // const {  } = useMyMembersStore()
   const jumlahMember = ref(1)
-  function addMember() {
+  function addMemberToList() {
     jumlahMember.value++
     dataMemberList.push({
-      img_url: {
-        url: '',
-        src: '',
-        file: null,
-        inputEl: null,
-      },
+      id: uuidv4(),
+      img_file: null,
+      img_src: '',
+      img_inputEl: null,
+      img_path: '',
+      img_url_expired_time: new Date(),
+      show: true,
+      img_url: '',
       name: '',
       email: '',
       start_date: new Date(),
       end_date: new Date(),
       position: '',
-      part: '',
+      part: Part.Member,
     })
   }
 
-  const dataMemberList = reactive<
-    Array<{
-      img_url: {
-        src: string,
-        url: string,
-        file: File | null,
-        inputEl: HTMLInputElement | null,
-      },
-      name: string,
-      email: string,
-      start_date: Date,
-      end_date: Date,
-      position: string,
-      part: string,
-    }>>([
+  const dataMemberList = reactive<MemberWhenAdd[]>([
       {
-        img_url: {
-          url: '',
-          src: '',
-          file: null,
-          inputEl: null,
-        },
+        id: uuidv4(),
+        img_url: '',
+        img_file: null,
+        img_src: '',
+        img_inputEl: null,
+        img_path: '',
+        img_url_expired_time: new Date(),
+        show: true,
         name: '',
         email: '',
         start_date: new Date(),
         end_date: new Date(),
         position: '',
-        part: '',
+        part: Part.Member,
       },
     ])
 
   function addImage(e: Event, index: number) {
-    const container = e.target as HTMLDivElement
     const inputEl = document.getElementById(`file-img-member-${index}`) as HTMLInputElement
 
-    dataMemberList[index].img_url.inputEl = inputEl
+    dataMemberList[index].img_inputEl = inputEl
     inputEl.click()
   }
 
   async function showFile(e: Event, index: number) {
-    if (dataMemberList[index].img_url.inputEl?.files) {
-      const file = dataMemberList[index].img_url.inputEl?.files![0]
+    if (dataMemberList[index].img_inputEl?.files) {
+      const file = dataMemberList[index].img_inputEl?.files![0]
       if (file) {
-        dataMemberList[index].img_url.file = file
+        dataMemberList[index].img_file = file
         const src = await fileToBase64(file);
         if (typeof src === 'string') {
-          dataMemberList[index].img_url.src = src
+          dataMemberList[index].img_src = src
         }
       }
     }
   }
-
-  async function uploadImages() {
+  
+  async function uploadProfilePictureToS3(): Promise<Member[]> {
+    const dataMemberToUpload: Member[] = []
     for (let i = 0; i < dataMemberList.length; i++) {
-      if (dataMemberList[i].img_url.file) {
-        const url = await uploadImageToImageKit
-          ({ uploadedPosterImg: dataMemberList[i].img_url.file!, title: dataMemberList[i].name })
-        dataMemberList[i].img_url.url = url
+      const member = dataMemberList[i]
+      if (member.img_file) {
+        if (member.part == Part.Member){
+          const { img_path, img_url, img_url_expired_time } = await uploadMembersProfilePicture({file: member.img_file, name: member.name})
+          dataMemberToUpload.push({
+            id: member.id,
+            img_path: img_path,
+            img_url: img_url,
+            img_url_expired_time: img_url_expired_time,
+            name: member.name,
+            email: member.email,
+            start_date: member.start_date,
+            end_date: member.end_date,
+            position: member.position,
+            part: member.part,
+            show: true,
+          })
+        } else if (member.part == Part.Intern){
+          const { img_path, img_url, img_url_expired_time } = await uploadInternProfilePicture({file: member.img_file, name: member.name})
+          dataMemberToUpload.push({
+            id: member.id,
+            img_path: img_path,
+            img_url: img_url,
+            img_url_expired_time: img_url_expired_time,
+            name: member.name,
+            email: member.email,
+            start_date: member.start_date,
+            end_date: member.end_date,
+            position: member.position,
+            part: member.part,
+            show: true,
+          })
+        }
       }
     }
+    return dataMemberToUpload
+
   }
 
-  function memberReadyToUpload() {
-    const membersToUpload: Member[] = []
-    dataMemberList.forEach((member) => {
-      const memberToUpload: Member = {
-        ...member,
-        img_url: member.img_url.url,
-        show: true,
-      }
-      membersToUpload.push(memberToUpload)
-    })
-    return membersToUpload
-  }
+  const { addMember } = useMyMembersStore()
 
   async function upload() {
     loadingUpload.value = true
-    await uploadImages()
-    const membersToUpload = memberReadyToUpload()
-    await uploadMember(membersToUpload)
+
+    // upload to s3
+    const memberToUpload = await uploadProfilePictureToS3()
+
+    // upload to database
+    await uploadMemberToDatabase(memberToUpload)
+    
+    // add to store
+     addMember(memberToUpload)
+
     loadingUpload.value = false
     navigateTo('/admin/member')
   }
@@ -120,7 +141,7 @@
 <template>
   <div class="space-y-4">
     <NuxtLink
-      to="/admin/article/research"
+      to="/admin/member"
       class="back-button px-4 py-1 border rounded-full"
     >
       Back
@@ -147,10 +168,10 @@
             @change="(e: Event) => { showFile(e, index) }"
           >
           <NuxtImg
-            :src="dataMemberList[index].img_url.src"
+            :src="dataMemberList[index].img_src"
             alt=""
             class="w-full h-full object-cover"
-            v-if="dataMemberList[index].img_url.src"
+            v-if="dataMemberList[index].img_src"
           />
           <div
             class="w-full h-full flex items-center justify-center"
@@ -228,8 +249,8 @@
                 v-model="dataMemberList[index].part"
                 class="border"
               >
-                <option value="member">Member</option>
-                <option value="magang">Magang</option>
+                <option :value="Part.Member">Member</option>
+                <option :value="Part.Intern">Magang</option>
               </select>
             </div>
           </div>
@@ -237,7 +258,7 @@
       </div>
       <div class="pt-2 flex items-center justify-between">
         <button
-          @click="addMember"
+          @click="addMemberToList"
           type="button"
           class="px-4 py-1 border rounded-full"
         >Add Member
