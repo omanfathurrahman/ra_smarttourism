@@ -13,38 +13,38 @@
   const showUserNotFoundAlert = ref(false)
   const showPasswordWrongAlert = ref(false)
 
-  const signIn = async () => {
-    const { data: token, error } = await useAsyncData('signin', async () => {
-      return await $fetch('/api/signin', {
-        method: 'POST',
-        body: {
-          email: data.email,
-          password: data.password
-        }
-      })
-    })
+  // const signIn = async () => {
+  //   const { data: token, error } = await useAsyncData('signin', async () => {
+  //     return await $fetch('/api/signin', {
+  //       method: 'POST',
+  //       body: {
+  //         email: data.email,
+  //         password: data.password
+  //       }
+  //     })
+  //   })
 
 
 
-    if (error.value) {
-      if (error.value.statusCode === 404) {
-        showUserNotFoundAlert.value = true
-        setTimeout(() => {
-          showUserNotFoundAlert.value = false
-        }, 3000)
-      } else if (error.value.statusCode === 401) {
-        showPasswordWrongAlert.value = true
-        setTimeout(() => {
-          showPasswordWrongAlert.value = false
-        }, 3000)
-      }
-    }
+  //   if (error.value) {
+  //     if (error.value.statusCode === 404) {
+  //       showUserNotFoundAlert.value = true
+  //       setTimeout(() => {
+  //         showUserNotFoundAlert.value = false
+  //       }, 3000)
+  //     } else if (error.value.statusCode === 401) {
+  //       showPasswordWrongAlert.value = true
+  //       setTimeout(() => {
+  //         showPasswordWrongAlert.value = false
+  //       }, 3000)
+  //     }
+  //   }
 
-    if (token.value) {
-      localStorage.setItem('token', token.value.toString())
-      navigateTo('/admin')
-    }
-  }
+  //   if (token.value) {
+  //     localStorage.setItem('token', token.value.toString())
+  //     navigateTo('/admin')
+  //   }
+  // }
 
 </script>
 
@@ -54,7 +54,7 @@
       <h1 class="text-3xl font-semibold">Are you admin?</h1>
       <form
         class="rounded-lg px-6 pt-3 pb-5 mt-2 flex flex-col gap-4 bg-white"
-        @submit.prevent="signIn"
+        @submit.prevent=""
       >
         <div class="flex flex-col">
           <label
