@@ -1,16 +1,16 @@
 <script setup lang="ts">
-  import type { Post } from '@prisma/client';
+  // import type { Post } from '@prisma/client';
 
-  const { getArticleFromDatabase, updateExpiredArticleImgUrl } = useMyArticleStore()
-  const { getAllArticles } = storeToRefs(useMyArticleStore())
+  // const { getArticleFromDatabase, updateExpiredArticleImgUrl } = useMyArticleStore()
+  // const { getAllArticles } = storeToRefs(useMyArticleStore())
 
-  const getInovasiArticles = computed(() => {
-    return getAllArticles.value.filter((article) => article.type === 'innovation')
-  })
+  // const getInovasiArticles = computed(() => {
+  //   return getAllArticles.value.filter((article) => article.type === 'innovation')
+  // })
 
-  async function updateImgUrl(article: Post) {
-    await updateExpiredArticleImgUrl(article)
-  }
+  // async function updateImgUrl(article: Post) {
+  //   await updateExpiredArticleImgUrl(article)
+  // }
 </script>
 
 <template>
@@ -58,7 +58,7 @@
           </p>
         </div>
         <div class="py-16 lg:py-24 bg-transparent grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16">
-          <div
+          <!-- <div
             @click="navigateTo(`/inovasi/${article.id}`)"
             class="relative cursor-pointer"
             v-for="article in getInovasiArticles"
@@ -76,7 +76,7 @@
               class="w-[8rem] lg:w-[16rem] h-[1.6rem] lg:h-[2rem] bg-second absolute -top-3 lg:-top-4 z-10 left-1/2 -translate-x-1/2"
             >
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

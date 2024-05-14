@@ -1,4 +1,4 @@
-<script
+<!-- <script
   lang="ts"
   setup
 >
@@ -54,12 +54,12 @@
   onBeforeMount(async () => {
     await fetchArticle()
   })
-</script>
+</script> -->
 
 <template>
   <div>
     <Header class="bg-primary lg:px-[6rem] px-4 !h-[5rem]"></Header>
-    <div
+    <!-- <div
       class="lg:px-[6rem] px-4 py-4 overflow-hidden text-black xl:pb-24"
       v-if="curArticle"
     >
@@ -119,7 +119,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <Footer></Footer>
   </div>
 </template>

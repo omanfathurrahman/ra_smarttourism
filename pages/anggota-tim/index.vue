@@ -2,18 +2,18 @@
   setup
   lang="ts"
 >
-  import type { Member } from '@prisma/client';
+  // import type { Member } from '@prisma/client';
 
-  const { width } = useWindowSize()
-  const isMobile = computed(() => width.value < 768)
+  // const { width } = useWindowSize()
+  // const isMobile = computed(() => width.value < 768)
 
-  const { updateExpiredMemberImgUrl, getMembersFromDatabase } = useMyMembersStore()
-  const { getMembers } = storeToRefs(useMyMembersStore())
+  // const { updateExpiredMemberImgUrl, getMembersFromDatabase } = useMyMembersStore()
+  // const { getMembers } = storeToRefs(useMyMembersStore())
 
-  async function updateImgUrl(member: Member) {
-    // console.log('updateImgUrl', member.img_url)
-    await updateExpiredMemberImgUrl(member)
-  }
+  // async function updateImgUrl(member: Member) {
+  //   // console.log('updateImgUrl', member.img_url)
+  //   await updateExpiredMemberImgUrl(member)
+  // }
 
 </script>
 
@@ -77,9 +77,9 @@
       <h2 class="text-4xl font-semibold text-center">Tim Magang Kami</h2>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10 lg:mt-[6rem]">
         <!-- {{ getMembers }} -->
-        <div
+        <!-- <div
           class="aspect-square relative group overflow-hidden"
-          v-for="(member, i) of getMembers"
+          v-for="(_) of 5"
           :key="i"
           data-aos="fade-up"
         >
@@ -102,7 +102,7 @@
             <h3 class="text-3xl">{{ member.name }}</h3>
             <span class="text-lg text-third">{{ member.position }}</span>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </div>
