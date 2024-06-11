@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     configPath: 'tailwind.config.ts',
   },
   experimental: {
+    appManifest: false,
     scanPageMeta: true,
     typedPages: true
   },
