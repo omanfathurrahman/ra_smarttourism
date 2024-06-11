@@ -107,7 +107,7 @@ const { y } = useWindowScroll()
         <div class="flex flex-col lg:grid lg:grid-cols-2 gap-6 mb-[4rem]">
           <div class="relative" data-aos="fade-right">
             <img
-              src="https://images.unsplash.com/photo-1682687982185-531d09ec56fc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1676313496173-e3b325353087?q=80&w=3003&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="">
               <div class="h-6 lg:h-[2.5rem] w-[12rem] lg:w-[18rem] absolute left-1/2 translate-x-[-50%] top-[-1rem] bg-pink-600"></div>
           </div>
@@ -138,7 +138,7 @@ const { y } = useWindowScroll()
           </div>
           <div class="relative" data-aos="fade-left">
             <img
-              src="https://images.unsplash.com/photo-1682687982185-531d09ec56fc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="">
               <div class="h-6 lg:h-[2.5rem] w-[12rem] lg:w-[18rem] absolute left-1/2 translate-x-[-50%] top-[-1rem] bg-pink-600"></div>
           </div>

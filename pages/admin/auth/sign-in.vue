@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
   const data = reactive({
-    email: 'tes@email.com',
+    email: 'admin@email.com',
     username: '',
-    password: 'admin001'
+    password: 'admin'
   })
 
   const signIn = async () => {

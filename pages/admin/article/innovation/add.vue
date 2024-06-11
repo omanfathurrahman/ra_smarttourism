@@ -227,10 +227,12 @@
                 <button
                   class="text-xs px-4 py-1 rounded-md border border-slate-400"
                   @click="moreDocumentationImgInputRef?.click()"
+                  type="button"
                 >Tambah</button>
                 <button
                   class="text-xs px-4 py-1 rounded-md border border-slate-400"
                   @click="resetDocumentationImageInput"
+                  type="button"
                 >Reset</button>
               </div>
             </div>

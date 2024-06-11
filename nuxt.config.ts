@@ -14,10 +14,14 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
+      title: 'Smart Tourism and Hospitality',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/ra-smarttourism.ico'}
       ]
     }
+  },
+  tailwindcss: {
+    configPath: 'tailwind.config.ts',
   },
   experimental: {
     scanPageMeta: true,
