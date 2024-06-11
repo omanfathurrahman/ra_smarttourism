@@ -9,9 +9,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
   }
   if (to.path.startsWith('/admin') && !to.path.startsWith('/admin/auth') && !getAuthUser) {
     try {
+      console.log(localStorage.getItem('token'))
       const user = await $fetch('/api/getauthuser', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })
+      console.log(user)
       if (!user) throw new Error('User not found')
       setAuthUser(user as User)
     } catch (e: unknown) {

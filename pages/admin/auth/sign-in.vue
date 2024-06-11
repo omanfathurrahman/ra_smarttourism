@@ -14,7 +14,9 @@
         password: data.password
       }
     })
+    console.log('login')
     localStorage.setItem('token', token.toString())
+    console.log(localStorage.getItem('token'))
 
     navigateTo('/admin')
   }

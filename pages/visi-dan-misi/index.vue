@@ -30,9 +30,7 @@
           <div class="bg-second px-14 py-8  h-fit lg:h-[18rem] relative">
             <h3 class="text-3xl font-bold mb-2">Visi</h3>
             <p>
-              "Menjadi pusat keunggulan global dalam pendidikan, penelitian, dan
-              praktik di industri pariwisata dan kehospitalitan yang
-              berkelanjutan dan inovatif."
+              "Menjadi pusat keunggulan riset, pelatihan, dan inovasi di bidang pariwisata dan hospitality yang unggul berbasis teknologi informasi dan komunikasi."
             </p>
             <div
               class="size-[3.5rem] bg-pink-500 absolute rounded-full border-[8px] border-white top-[-1.8rem] left-1/2 translate-x-[-50%]">
@@ -47,14 +45,13 @@
             <h3 class="text-3xl font-bold mb-2">Misi</h3>
             <ol class="list-decimal pl-5">
               <li>
-                Memberikan pendidikan berkualitas tinggi yang mempersiapkan
-                mahasiswa untuk menjadi pemimpin industri pariwisata dan
-                kehospitalitan yang terampil, beretika, dan berwawasan masa
-                depan.
+                Meningkatkan kualitas produk dan layanan pariwisata dan hospitality melalui digitalisasi, teknologi dan inovasi terkini.
               </li>
               <li>
-                Mengembangkan kurikulum yang responsif terhadap perkembangan
-                industri, teknologi, dan kebutuhan masyarakat global.
+                Menjalin kerjasama dan kolaborasi lintas sektor demi memajukan sektor pariwisata Indonesia yang berkelanjutan.
+              </li>
+              <li>
+                Memajukan sumber daya manusia di bidang pariwisata dan hospitality melalui penelitian dan pelatihan, serta pengabdian masyarakat.
               </li>
             </ol>
             <div

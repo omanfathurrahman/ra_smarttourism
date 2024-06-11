@@ -34,9 +34,9 @@ const { y } = useWindowScroll()
           <div class="flex flex-col items-center">
             <h1 class="text-3xl lg:text-8xl font-semibold">Center of Excellence</h1>
             <span class="text-xl lg:text-6xl">Smart Tourism & Hospitality</span>
+            <span class="text-xl lg:text-6xl">(STH)</span>
           </div>
-          <p class="text-lg text-white/60 lg:w-1/2 text-center mt-4">Tingkatkan pengalaman Anda dengan Smart Tourism dan
-            Hospitality! Hemat waktu, jelajahi lebih banyak, dan rasakan kenyamanan teknologi.</p>
+          <p class="text-lg text-white/60 lg:w-1/2 text-center mt-4">Pusat unggulan penelitian, pelatihan, konsultasi, solusi inovasi dan digitalisasi dalam ranah pariwisata dan hospitality yang berkelanjutan.</p>
         </div>
         <div
           class="absolute bottom-0 w-full h-[4rem] left-0 -z-10 bg-gradient-to-t from-[#303030] from-30% to-transparent">

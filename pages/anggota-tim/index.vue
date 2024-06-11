@@ -27,7 +27,7 @@
       <div class="lg:h-[calc(100dvh-4.5rem)] flex items-center -z-10 py-12 lg:py-0">
         <Hero
           imgFile="anggota-tim.png"
-          title="Anggota Tim"
+          title="Struktur Organisasi"
           class=""
           data-aos="fade-up"
         />
@@ -56,6 +56,18 @@
           />
         </div>
       </div>
+    </div>
+    <div class="text-black">
+      <h3>Fokus area COE STH:</h3>
+      <p>Intelligent Business and Sustainable</p>
+    </div>
+    <div class="text-black">
+      <h3>Sub Fokus area COE STH:</h3>
+      <p>bla bla</p>
+    </div>
+    <div class="text-black">
+      <h3>Kepakaran:</h3>
+      <p>bla bla</p>
     </div>
     <div class="bg-primary px-4 lg:px-[6rem] py-[3rem] lg:py-[6rem] flex flex-col-reverse lg:flex-row gap-4 lg:gap-16 items-center">
       <div class="w-full lg:w-9/12 space-y-5">

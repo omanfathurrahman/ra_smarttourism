@@ -9,7 +9,7 @@ declare module 'h3' {
 export default defineEventHandler(async (event) => {
   try {
     const headers = getHeaders(event)
-    const privateKey = process.env.PRIVATE_KEY || 'privateKey'
+    const privateKey = process.env.PRIVATE_KEY || 'SMARTTOURISMANDHOSPITALITY'
     if (headers.authorization) {
       event.context.auth = { id: (jwt.verify(headers.authorization.split(' ')[1], privateKey) as JwtPayload as User).id }
     }
