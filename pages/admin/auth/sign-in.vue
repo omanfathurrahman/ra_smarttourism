@@ -1,22 +1,22 @@
 <script setup lang="ts">
 
   const data = reactive({
-    email: 'tes@email.com',
+    email: 'admin@email.com',
     username: '',
-    password: 'admin001'
+    password: 'admin'
   })
 
   const signIn = async () => {
-    const token = await $fetch('/api/signin', {
-      method: 'POST',
-      body: {
-        email: data.email,
-        password: data.password
-      }
-    })
+    // const token = await $fetch('/api/signin', {
+    //   method: 'POST',
+    //   body: {
+    //     email: data.email,
+    //     password: data.password
+    //   }
+    // })
     console.log('login')
-    localStorage.setItem('token', token.toString())
-    console.log(localStorage.getItem('token'))
+    // localStorage.setItem('token', token.toString())
+    // console.log(localStorage.getItem('token'))
 
     navigateTo('/admin')
   }

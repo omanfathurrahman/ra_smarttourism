@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false,
+  // ssr: false,
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss',
@@ -14,12 +14,17 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
+      title: 'Smart Tourism and Hospitality',
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/ra-smarttourism.ico'}
+        { rel: 'icon', href: '/ra-smarttourism.ico'}
       ]
     }
   },
+  tailwindcss: {
+    configPath: 'tailwind.config.ts',
+  },
   experimental: {
+    appManifest: false,
     scanPageMeta: true,
     typedPages: true
   },

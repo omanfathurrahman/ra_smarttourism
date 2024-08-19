@@ -51,7 +51,7 @@
         </button>
         <Transition>
           <div
-            class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap"
+            class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap z-30"
             v-show="navHover.tentangKami"
           >
             <NuxtLink
@@ -90,7 +90,7 @@
         </button>
         <Transition>
           <div
-            class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap"
+            class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap z-30"
             v-show="navHover.aktivitas"
           >
             <NuxtLink
@@ -121,7 +121,7 @@
         </button>
         <Transition>
           <div
-            class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] *:text-nowrap"
+            class="flex flex-col bg-zinc-700/90 px-6 py-2 rounded-md absolute top-[95%] -right-8 *:text-nowrap z-30"
             v-show="navHover.program"
           >
             <NuxtLink

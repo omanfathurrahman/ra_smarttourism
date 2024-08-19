@@ -1,23 +1,10 @@
-<script
-  setup
-  lang="ts"
->
-  import type { Post } from '@prisma/client';
+<script setup lang="ts">
 
-  const articlesList = ref<Post[]>([])
-
-  async function getArticles() {
-    const articles = await $fetch('/api/articles/type', {
-      query: {
-        type: 'research'
-      }
-    })
-    articlesList.value = articles
+const { data: articlesList } = useFetch('/api/articles/type', {
+  query: {
+    type: 'research'
   }
-
-  onMounted(() => {
-    getArticles()
-  })
+})
 </script>
 
 <template>
@@ -26,11 +13,7 @@
       <Header />
       <div class="absolute w-full h-[12rem] lg:h-[24rem] bg-primary top-0 left-0 -z-10"></div>
       <div class="lg:h-[calc(100dvh-4.5rem)] flex items-center -z-10 py-12 lg:py-0">
-        <Hero
-          imgFile="visi-dan-misi.png"
-          title="Riset dan Publikasi"
-          class=""
-        />
+        <Hero imgFile="visi-dan-misi.png" title="Riset dan Publikasi" class="" />
       </div>
       <div class="border-b pb-10 border-zinc-700 relative">
         <h2 class="text-black text-center lg:text-start text-3xl lg:text-5xl font-semibold">
@@ -76,22 +59,13 @@
       </div>
     </div>
     <div class="px-6 lg:px-24 py-16 lg:py-24 bg-primary grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-16">
-      <div
-        @click="navigateTo(`/riset/${article.id}`)"
-        class="relative cursor-pointer"
-        v-for="article in articlesList"
-        :key="article.id"
-      >
+      <div @click="navigateTo(`/riset/${article.id}`)" class="relative cursor-pointer" v-for="article in articlesList"
+           :key="article.id">
         <div class="aspect-[3/2] overflow-hidden">
-          <img
-            :src="article.img_url!"
-            alt=""
-            class="w-full h-full object-cover"
-          />
+          <img :src="article.img_url!" alt="" class="w-full h-full object-cover" />
         </div>
         <div
-          class="w-[8rem] lg:w-[16rem] h-[1.6rem] lg:h-[2rem] bg-second absolute -top-3 lg:-top-4 z-10 left-1/2 -translate-x-1/2"
-        >
+             class="w-[8rem] lg:w-[16rem] h-[1.6rem] lg:h-[2rem] bg-second absolute -top-3 lg:-top-4 z-10 left-1/2 -translate-x-1/2">
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@
   }
 
   onMounted(() => {
-    getArticles()
+    // getArticles()
   })
 </script>
 
