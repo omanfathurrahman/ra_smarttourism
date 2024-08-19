@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     head: {
       title: 'Smart Tourism and Hospitality',
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/ra-smarttourism.ico'}
+        { rel: 'icon', href: '/ra-smarttourism.ico'}
       ]
     }
   },

@@ -14,25 +14,25 @@
   import type { Post } from '@prisma/client';
   import type { ImageUploaded } from '~/types/ImageUploaded';
 
-  const authUser = useAuthUser()
-  const { getAuthUser } = authUser
+  // const authUser = useAuthUser()
+  // const { getAuthUser } = authUser
   let description: EditorJS;
   let whatWeDid: EditorJS;
 
   const loadingUpload = ref(false)
 
-  const articleData = reactive({
-    title: "",
-    description: "",
-    what_we_did_desc: "",
-    category: "",
-    client: "",
-    hki_paten: "",
-    website_link: "",
-    img_url: "",
-    userId: getAuthUser!.id,
-    type: 'innovation',
-  });
+  // const articleData = reactive({
+  //   title: "",
+  //   description: "",
+  //   what_we_did_desc: "",
+  //   category: "",
+  //   client: "",
+  //   hki_paten: "",
+  //   website_link: "",
+  //   img_url: "",
+  //   userId: '',
+  //   type: 'innovation',
+  // });
 
   const posterImgInputRef = ref<HTMLInputElement>()
   const uploadedPosterImgSrc = ref<ImageUploaded>() // only for preview
@@ -44,13 +44,13 @@
     }
   }
 
-  async function uploadPosterImage() {
-    const url = await uploadImageToImageKit({
-      uploadedPosterImg: uploadedPosterImgSrc.value!.file!,
-      title: articleData.title
-    })
-    articleData.img_url = url
-  }
+  // async function uploadPosterImage() {
+  //   const url = await uploadImageToImageKit({
+  //     uploadedPosterImg: uploadedPosterImgSrc.value!.file!,
+  //     title: articleData.title
+  //   })
+  //   articleData.img_url = url
+  // }
 
   const documentationImgInputRef = ref<HTMLInputElement>()
   const moreDocumentationImgInputRef = ref<HTMLInputElement>()
@@ -74,15 +74,15 @@
     moreDocumentationImgInputRef.value!.files = null
   }
 
-  async function uploadDocumatationImages() {
-    for (let i = 0; i < uploadedDocumentationImgSrc.value.length; i++) {
-      const url = await uploadImageToImageKit({
-        uploadedPosterImg: uploadedDocumentationImgSrc.value[i].file!,
-        title: `${articleData.title}-${i}`
-      })
-      uploadedDocumentationImgUrls.value.push(url)
-    }
-  }
+  // async function uploadDocumatationImages() {
+  //   for (let i = 0; i < uploadedDocumentationImgSrc.value.length; i++) {
+  //     const url = await uploadImageToImageKit({
+  //       uploadedPosterImg: uploadedDocumentationImgSrc.value[i].file!,
+  //       title: `${articleData.title}-${i}`
+  //     })
+  //     uploadedDocumentationImgUrls.value.push(url)
+  //   }
+  // }
 
   function resetDocumentationImageInput() {
     documentationImgInputRef.value!.files = null
@@ -116,7 +116,7 @@
 
       placeholder: 'Let`s write an awesome story!',
       onReady: () => {
-        console.log('Editor.js is ready to work!')
+        // console.log('Editor.js is ready to work!')
       }
     });
   }
@@ -124,8 +124,8 @@
   async function saveEditorJsObjects() {
     const isi = await description.save()
     const whatWeDidDesc = await whatWeDid.save()
-    articleData.description = JSON.stringify(isi)
-    articleData.what_we_did_desc = JSON.stringify(whatWeDidDesc)
+    // articleData.description = JSON.stringify(isi)
+    // articleData.what_we_did_desc = JSON.stringify(whatWeDidDesc)
   }
 
   function destroyEditorJsObjects() {
@@ -136,20 +136,20 @@
   async function uploadCurArticle() {
     loadingUpload.value = true
     await saveEditorJsObjects()
-    await uploadPosterImage()
-    await uploadDocumatationImages()
-    const postId = await uploadArticle(articleData as Post)
-    await uploadArticleDocumentationImages({ postId: postId, img_url: uploadedDocumentationImgUrls.value })
+    // await uploadPosterImage()
+    // await uploadDocumatationImages()
+    // const postId = await uploadArticle(articleData as Post)
+    // await uploadArticleDocumentationImages({ postId: postId, img_url: uploadedDocumentationImgUrls.value })
     loadingUpload.value = false
     
     navigateTo('/admin/article/innovation')
   }
 
   onMounted(() => {
-    initEditorJsObjects()
+    // initEditorJsObjects()
   })
   onUnmounted(() => {
-    destroyEditorJsObjects()
+    // destroyEditorJsObjects()
   })
 
 </script>
@@ -168,8 +168,13 @@
             type="text"
             id="title"
             class="border border-slate-300 px-2 py-1 rounded-md"
-            v-model="articleData.title"
           />
+          <!-- <input
+            type="text"
+            id="title"
+            class="border border-slate-300 px-2 py-1 rounded-md"
+            v-model="articleData.title"
+          /> -->
         </div>
         <div class="flex flex-col">
           <label for="description">Deskripsi</label>
@@ -251,6 +256,62 @@
             type="text"
             id="caregory"
             class="border border-slate-300 px-2 py-1 rounded-md"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="client">Klien</label>
+          <input
+            type="text"
+            id="client"
+            class="border border-slate-300 px-2 py-1 rounded-md"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="hki-paten">HKI atau Paten</label>
+          <input
+            type="text"
+            id="hki-paten"
+            class="border border-slate-300 px-2 py-1 rounded-md"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="web-link">Link Website</label>
+          <input
+            type="text"
+            id="web-link"
+            class="border border-slate-300 px-2 py-1 rounded-md"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="img-url">Gambar</label>
+          <input
+            @change="previewPosterImg"
+            ref="posterImgInputRef"
+            type="file"
+            accept="image/*"
+            id="img-url"
+            class="hidden"
+            :multiple="false"
+          >
+          <div
+            @click="posterImgInputRef?.click()"
+            class="rounded-md overflow-hidden cursor-pointer aspect-video bg-sky-100 flex flex-col items-center justify-center"
+          >
+            <img
+              v-if="uploadedPosterImgSrc"
+              :src="uploadedPosterImgSrc.src"
+              alt=""
+              class="w-full object-cover object-center"
+            >
+            <p v-else>Pilih gambar poster</p>
+          </div>
+        </div>
+        <!-- <div class="flex flex-col">
+          <label for="caregory">Kategori</label>
+          <input
+            type="text"
+            id="caregory"
+            class="border border-slate-300 px-2 py-1 rounded-md"
             v-model="articleData.category"
           />
         </div>
@@ -304,7 +365,7 @@
             >
             <p v-else>Pilih gambar poster</p>
           </div>
-        </div>
+        </div> -->
         <button
           type="submit"
           class="px-4 py-1 bg-sky-300 rounded-md"

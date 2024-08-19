@@ -7,16 +7,16 @@
   })
 
   const signIn = async () => {
-    const token = await $fetch('/api/signin', {
-      method: 'POST',
-      body: {
-        email: data.email,
-        password: data.password
-      }
-    })
+    // const token = await $fetch('/api/signin', {
+    //   method: 'POST',
+    //   body: {
+    //     email: data.email,
+    //     password: data.password
+    //   }
+    // })
     console.log('login')
-    localStorage.setItem('token', token.toString())
-    console.log(localStorage.getItem('token'))
+    // localStorage.setItem('token', token.toString())
+    // console.log(localStorage.getItem('token'))
 
     navigateTo('/admin')
   }

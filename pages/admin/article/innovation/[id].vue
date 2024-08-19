@@ -9,7 +9,7 @@
   })
 
   import type { Post } from '@prisma/client';
-  import type { ArticleDescriptionOrWhatWeDidContentBlocks, ArticleDescriptionOrWhatWeDidInterface } from '~/types/Article';
+  import type { ArticleDescriptionOrWhatWeDidInterface } from '~/types/Article';
 
   onBeforeMount(async () => {
     await fetchArticle()

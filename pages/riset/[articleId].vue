@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 
-// TODO: create for other pages
-
 import type { Post } from '@prisma/client';
 import type { ArticleDescriptionOrWhatWeDidInterface, ArticleDocumentationImage } from '~/types/Article';
 
